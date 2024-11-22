@@ -6,11 +6,11 @@ public class ParkingManager {
     private static ParkingManager instance;
     private static final int MaxSlots = 4;
     private int OccupiedSlots = 0;
-    private final Semaphore semaphore;
+    private final MySemaphore semaphore;
     private final Queue<Car> CarQueue = new LinkedList<>();
 
     private ParkingManager() {
-        semaphore = new Semaphore(MaxSlots, true);
+        semaphore = new MySemaphore(MaxSlots, true);
     }
 
     public static synchronized ParkingManager getInstance() {
